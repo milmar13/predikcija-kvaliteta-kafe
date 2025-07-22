@@ -70,4 +70,4 @@ Za pokretanje projekta koristi:
 
 ## Autor
 
-Marija Milić
+Marija Milić 2024/3834
