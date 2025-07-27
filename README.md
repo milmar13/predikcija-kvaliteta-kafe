@@ -14,7 +14,6 @@ Cilj projekta je predikcija ocene kvaliteta kafe na osnovu hemijskih karakterist
 - TensorFlow / Keras - izrada neuronske mreže
 - Matplotlib - vizualizacija
 - Dataset: [Arabica Coffee Data](https://github.com/jldbc/coffee-quality-database)
-- Transformers / BERT (LLM) – za obradu tekstualnih podataka
 
 ---
 
@@ -26,19 +25,24 @@ Cilj projekta je predikcija ocene kvaliteta kafe na osnovu hemijskih karakterist
 4. **Podela na trening (60%) i test (40%) skup**
 5. **Treniranje Dense neuronske mreže (128 → 64 → 3 softmax)**
 6. **Evaluacija modela i crtanje grafikona**
-7. **Korišćenje BERT embeddinga za tekstualne kolone**
-8. **Čuvanje modela i eksport rezultata**
+7. **Čuvanje modela i eksport rezultata**
 
 ----
 
 ## Model
 
-Model je konstruisan kao neuronska mreža sa sledećim slojevima:
+Model (Keras Sequential):
+- Dense sloj (64 neurona) + ReLU
+- Batch Normalization
+- Dropout (0.3)
+- Dense sloj (32 neurona) + ReLU
+- Batch Normalization
+- Dropout (0.3)
+- Dense sloj (16 neurona) + ReLU
+- Izlazni sloj (3 neurona, softmax)
 
-- Dense(128) + ReLU
-- Dropout(0.3)
-- Dense(64) + ReLU
-- Output Dense(3) + Softmax
+Loss: categorical_crossentropy
+Optimizator: Adam
 
 ---
 
